@@ -1,0 +1,22 @@
+[package]
+name = "tripatch"
+version = "1.0.0"
+edition = "2021"
+description = "Triptych (AZSys) script.arc translation patcher and toolkit"
+
+[[bin]]
+name = "tripatch"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+flate2 = "1"
+encoding_rs = "0.8"
+rfd = "0.15"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
